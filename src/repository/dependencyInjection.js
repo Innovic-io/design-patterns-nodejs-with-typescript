@@ -11,3 +11,4 @@ function MyService (observer) {
 }
 
 module.exports = MyService
+

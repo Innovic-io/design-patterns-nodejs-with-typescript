@@ -8,12 +8,13 @@
  * the receiver object to execute these methods is also stored in the command object by aggregation.
  */
 class EngineCommand {
-  constructor () {
+  constructor() {
     this.commands = []
   }
 
-  storeAndExecute (command) {
+  storeAndExecute(command) {
     this.commands.push(command)
+
     command.execute()
   }
 }
@@ -37,7 +38,7 @@ class CarInvoker {
  * The invoker does not know anything about a concrete command, it knows only about command interface.
  */
 class StartReceiver {
-  constructor (car) {
+  constructor(car) {
     this._car = car
   }
 
@@ -51,7 +52,7 @@ class EndReceiver {
     this._car = car
   }
 
-  execute () {
+  execute() {
     this._car.end()
   }
 }
@@ -63,10 +64,12 @@ const car = new CarInvoker()
 
 // receivers
 const startCar = new StartReceiver(car)
+
 const endCar = new EndReceiver(car)
 
 // command
 const engine = new EngineCommand()
 
 engine.storeAndExecute(startCar)
+
 engine.storeAndExecute(endCar)
