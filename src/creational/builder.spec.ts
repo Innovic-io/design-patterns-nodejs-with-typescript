@@ -1,10 +1,10 @@
 import builderName from "./builder";
 
-describe('Builder', () => {
+describe("Builder", () => {
 
-    it('should be exact', () => {
+    it("should be exact", () => {
 
-      expect(builderName).toEqual('My Name');
+      expect(builderName).toEqual("My Name");
 
     });
 });

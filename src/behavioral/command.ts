@@ -7,28 +7,42 @@
  * Values for parameters of the receiver method are stored in the command,
  * the receiver object to execute these methods is also stored in the command object by aggregation.
  */
-class EngineCommand {
-  constructor() {
-    this.commands = []
-  }
+export class EngineCommand {
+
+  private commands = [];
+
+  constructor() {}
 
   storeAndExecute(command) {
-    this.commands.push(command)
 
-    command.execute()
+    this.commands.push(command);
+
+    command.execute();
   }
 }
 
 /**
  * An invoker object knows how to execute a command, and optionally does bookkeeping about the command execution.
  */
-class CarInvoker {
+export interface ICar {
+  start(): void;
+  end(): void;
+}
+
+export class CarInvoker implements ICar {
+
+  private engineOn: boolean;
+
   start () {
-    console.log('start engine')
+    this.engineOn = true;
   }
 
   end () {
-    console.log('shutdown engine')
+    this.engineOn = false;
+  }
+
+  getEngineStatus() {
+    return this.engineOn;
   }
 }
 
@@ -37,39 +51,33 @@ class CarInvoker {
  *
  * The invoker does not know anything about a concrete command, it knows only about command interface.
  */
-class StartReceiver {
-  constructor(car) {
-    this._car = car
-  }
 
-  execute () {
-    this._car.start()
-  }
+interface Receiver {
+  execute(): void;
 }
 
-class EndReceiver {
-  constructor (car) {
-    this._car = car
+export class StartReceiver<T extends ICar> implements Receiver {
+
+  car: T;
+
+  constructor(car: T) {
+    this.car = car
   }
 
   execute() {
-    this._car.end()
+    this.car.start()
   }
 }
 
-// USAGE
+export class EndReceiver<T extends ICar> implements Receiver {
 
-// invoker
-const car = new CarInvoker()
+  car: T;
 
-// receivers
-const startCar = new StartReceiver(car)
+  constructor (car: T) {
+    this.car = car
+  }
 
-const endCar = new EndReceiver(car)
-
-// command
-const engine = new EngineCommand()
-
-engine.storeAndExecute(startCar)
-
-engine.storeAndExecute(endCar)
+  execute() {
+    this.car.end()
+  }
+}
