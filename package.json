@@ -4,7 +4,7 @@
   "author": {
     "url": "http://www.innovic.io",
     "email": "hello@innovic.io",
-    "name": "Vlado Tešanović"
+    "name": "INNOVIC DOO"
   },
   "version": "0.0.1",
   "engines": {
@@ -12,16 +12,28 @@
   },
   "private": true,
   "scripts": {
-    "lint": "eslint ./src/**/*.js",
-    "start": "node ./src/index.js"
+    "test": "jest"
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^4.5.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "@types/jest": "^21.1.8",
+    "typescript": "^2.6.2",
+    "jest": "^21.2.1",
+    "tslint": "^5.8.0",
+    "nodemon": "^1.11.0",
+    "ts-jest": "^21.2.4",
+    "ts-node": "^3.3.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }
