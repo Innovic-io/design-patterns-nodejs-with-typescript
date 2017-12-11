@@ -1,5 +1,7 @@
 # Design patterns in NodeJS with TypeScript
 
+Unit tested with Jest.
+
 ## Install
 
 ```bash
