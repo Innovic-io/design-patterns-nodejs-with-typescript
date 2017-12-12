@@ -1,52 +1,55 @@
-import { BusFactory, CarFactory, TruckFactory, Van, VanFactory } from "./factory";
+import { CarEnum, CarFactory } from "./factory";
 
-describe('Vehicle Builder', () => {
+describe('Factory', () => {
+  let factory;
+  beforeEach(() => {
+    factory = new CarFactory();
+  });
 
   it('should build car', () => {
-    const car = new CarFactory();
+    const car = factory.create(CarEnum.Sedan);
 
-    expect(car.GetVehicle().getNumberOfSeats()).toEqual(4);
-    expect(car.GetVehicle().getName()).toEqual('Car');
+    expect(car.getNumberOfSeats()).toEqual(4);
+    expect(car.getName()).toEqual('Sedan');
 
   });
 
   it('should build van', () => {
-    const van = new VanFactory();
+    const van = factory.create(CarEnum.Van);
 
-    expect(van.GetVehicle().getNumberOfSeats()).toEqual(20);
-    expect(van.GetVehicle().getName()).toEqual('Van');
+    expect(van.getNumberOfSeats()).toEqual(20);
+    expect(van.getName()).toEqual('Van');
 
   });
 
   it('should build van with 10 seats', () => {
-    const van = new VanFactory(10);
+    const van = factory.create(CarEnum.Van, 10);
 
-    expect(van.GetVehicle().getNumberOfSeats()).toEqual(10);
-    expect(van.GetVehicle().getName()).toEqual('Van');
+    expect(van.getNumberOfSeats()).toEqual(10);
+    expect(van.getName()).toEqual('Van');
 
   });
 
   it('should build bus with 25 seats and named minibus', () => {
-    const van = new BusFactory(25, 'Mini Bus');
+    const bus = factory.create(CarEnum.Bus,25, 'Mini Bus');
 
-    expect(van.GetVehicle().getNumberOfSeats()).toEqual(25);
-    expect(van.GetVehicle().getName()).toEqual('Mini Bus');
+    expect(bus.getNumberOfSeats()).toEqual(25);
+    expect(bus.getName()).toEqual('Mini Bus');
 
   });
 
   it('should build truck', () => {
-    const van = new TruckFactory();
+    const van = factory.create(CarEnum.Truck);
 
-    expect(van.GetVehicle().getNumberOfSeats()).toEqual(5);
-    expect(van.GetVehicle().getName()).toEqual('Truck');
+    expect(van.getNumberOfSeats()).toEqual(5);
+    expect(van.getName()).toEqual('Truck');
   });
 
 
   it('should build bus', () => {
-    const bus = new BusFactory();
+    const bus = factory.create(CarEnum.Bus);
 
-    expect(bus.GetVehicle().getNumberOfSeats()).toEqual(55);
-    expect(bus.GetVehicle().getName()).toEqual('Bus');
+    expect(bus.getNumberOfSeats()).toEqual(55);
+    expect(bus.getName()).toEqual('Bus');
   });
-
 });

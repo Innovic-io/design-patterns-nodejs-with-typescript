@@ -1,6 +1,5 @@
 // https://en.wikipedia.org/wiki/Factory_method_pattern
 interface IVehicle {
-
   getName(): string
   getDescription(): string;
   setNumberOfSeats(seats: number): IVehicle;
@@ -12,7 +11,7 @@ class Truck implements IVehicle {
   private typeOfVehicle: string;
   private numberOfSeats: number;
 
-  constructor(numberOfSeats = 5, vehicleName = 'Truck') {
+  constructor(numberOfSeats = 5, vehicleName: string = CarEnum.Truck) {
     this
       .setNumberOfSeats(numberOfSeats)
       .setName(vehicleName);
@@ -41,11 +40,11 @@ class Truck implements IVehicle {
   }
 }
 
-export class Van implements IVehicle {
-  typeOfVehicle: string;
-  numberOfSeats: number;
+class Van implements IVehicle {
+  private typeOfVehicle: string;
+  private numberOfSeats: number;
 
-  constructor(numberOfSeats = 20, vehicleName = 'Van') {
+  constructor(numberOfSeats = 20, vehicleName:string = CarEnum.Van) {
     this.setNumberOfSeats(numberOfSeats)
       .setName(vehicleName);
   }
@@ -73,11 +72,12 @@ export class Van implements IVehicle {
   }
 }
 
-class Car implements IVehicle {
+class Sedan implements IVehicle {
   private typeOfVehicle: string;
   private numberOfSeats: number;
 
-  constructor(numberOfSeats = 4, vehicleName = 'Car') {
+  constructor(numberOfSeats = 4, vehicleName: string = CarEnum.Sedan) {
+
     this
       .setNumberOfSeats(numberOfSeats)
       .setName(vehicleName);
@@ -110,7 +110,8 @@ class Bus implements IVehicle {
   private typeOfVehicle: string;
   private numberOfSeats: number;
 
-  constructor(numberOfSeats = 55, vehicleName = 'Bus') {
+  constructor(numberOfSeats = 55, vehicleName:string = CarEnum.Bus) {
+
     this
       .setNumberOfSeats(numberOfSeats)
       .setName(vehicleName);
@@ -140,49 +141,34 @@ class Bus implements IVehicle {
 }
 
 abstract class VehicleAbstractFactory {
-  private vehicleSeats: number;
-  private vehicleName: string;
+  protected abstract create(type: CarEnum): IVehicle;
+}
 
-  constructor(seats?: number, name?: string) {
-
-    this.BuildVehicle(seats, name);
-    this.vehicleSeats = seats;
-    this.vehicleName = name;
-
-    return this;
-  }
-  protected abstract BuildVehicle(seats?: number, newVehicleName?: string): IVehicle;
-
-  GetVehicle(): IVehicle {
-    return this.BuildVehicle(this.vehicleSeats, this.vehicleName);
-  }
+export enum CarEnum {
+  Sedan = 'Sedan',
+  Van = 'Van',
+  Truck = 'Truck',
+  Bus = 'Bus'
 }
 
 export class CarFactory extends VehicleAbstractFactory {
 
-  protected BuildVehicle(seats?: number, name?: string): IVehicle {
+  create(type: CarEnum, numberOfSeats?: number, name?: string) {
 
-    return new Car(seats, name);
-  }
-}
+    switch (type) {
+      case CarEnum.Sedan:
+        return new Sedan(numberOfSeats, name);
 
-export class VanFactory extends VehicleAbstractFactory {
+      case CarEnum.Bus:
+        return new Bus(numberOfSeats, name);
 
-  protected BuildVehicle(seats?: number, name?: string): IVehicle {
+      case CarEnum.Van:
+        return new Van(numberOfSeats, name);
 
-    return new Van(seats, name);
-  }
-}
-
-export class TruckFactory extends VehicleAbstractFactory {
-  protected BuildVehicle(seats?: number, name?: string): IVehicle {
-    return new Truck(seats, name);
-  }
-}
-
-export class BusFactory extends VehicleAbstractFactory {
-  protected BuildVehicle(seats?: number, name?: string): IVehicle {
-
-    return new Bus(seats, name);
+      case CarEnum.Truck:
+        return new Truck(numberOfSeats, name);
+      default:
+        break;
+    }
   }
 }
