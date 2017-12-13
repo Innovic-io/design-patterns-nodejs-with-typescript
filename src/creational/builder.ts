@@ -1,50 +1,35 @@
 // https://en.wikipedia.org/wiki/Builder_pattern
 
 export class UserBuilder {
-    private first_name?: string;
-    private last_name?: string;
-    private age?: number;
-    private email?: string;
+    private user: User;
 
-    // setters
+    constructor() {
+        this.user = new User;
+    }
+
     setFirstName(first_name: string): UserBuilder {
-        this.first_name = first_name;
+        this.user.setFirstName(first_name);
 
         return this;
     }
     setLastName(last_name: string): UserBuilder {
-        this.last_name = last_name;
+        this.user.setLastName(last_name);
 
         return this;
     }
     setAge(age: number): UserBuilder {
-        this.age = age;
+        this.user.setAge(age);
 
         return this;
     }
     setEmail(email: string): UserBuilder {
-        this.email = email;
+        this.user.setEmail(email);
 
         return this;
     }
 
-    // getters
-    get FirstName(): string {
-        return this.first_name;
-    }
-    get LastName(): string {
-        return this.last_name;
-    }
-    get Age(): number {
-        return this.age;
-    }
-    get Email(): string {
-        return this.email;
-    }
-
-    // return results
-    get(): User {
-        return new User(this);
+    build(): User {
+        return this.user;
     }
 }
 
@@ -54,23 +39,35 @@ export class User {
     private age?: number;
     private email?: string;
 
-    constructor(user: UserBuilder) {
-        this.first_name = user.FirstName;
-        this.last_name = user.LastName;
-        this.age = user.Age;
-        this.email = user.Email;
+    constructor() {}
+
+    setFirstName(first_name: string): void {
+        this.first_name = first_name;
+    }
+    setLastName(last_name: string): void {
+        this.last_name = last_name;
+    }
+    setAge(age: number): void {
+        this.age = age;
+    }
+    setEmail(email: string): void {
+        this.email = email;
     }
 
     get FirstName(): string {
+
         return this.first_name;
     }
     get LastName(): string {
+
         return this.last_name;
     }
     get Age(): number {
+
         return this.age;
     }
     get Email(): string {
+        
         return this.email;
     }
 }

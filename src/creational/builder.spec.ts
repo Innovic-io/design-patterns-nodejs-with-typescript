@@ -15,7 +15,7 @@ describe("User", () => {
                     .setLastName("Brckalo")
                     .setAge(20)
                     .setEmail("milan.brckalo@innovic.io")
-                    .get();
+                    .build();
 
       expect(user.FirstName).toHaveLength;
       expect(user.LastName).toHaveLength;
@@ -28,7 +28,7 @@ describe("User", () => {
       const user = builder
                     .setFirstName("Milan")
                     .setLastName("Brckalo")
-                    .get();
+                    .build();
 
       expect(user.FirstName).toHaveLength;
       expect(user.LastName).toHaveLength;
