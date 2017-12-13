@@ -1,10 +1,36 @@
-import builderName from "./builder";
+import { UserBuilder } from "./builder";
 
-describe("Builder", () => {
+describe("User", () => {
 
-    it("should be exact", () => {
+  let builder;
 
-      expect(builderName).toEqual("My Name");
+  beforeEach(() => {
+    builder = new UserBuilder();
+  });
 
+    it("should be complete", () => {
+
+      const user = builder
+                    .setFirstName("Milan")
+                    .setLastName("Brckalo")
+                    .setAge(20)
+                    .setEmail("milan.brckalo@innovic.io")
+                    .build();
+
+      expect(user.FirstName).toHaveLength;
+      expect(user.LastName).toHaveLength;
+      expect(user.Age).toBeGreaterThan(0);
+      expect(user.Email).toMatch(/\S+@\S+\.\S+/);
+    });
+
+    it("should be only with first and last name", () => {
+
+      const user = builder
+                    .setFirstName("Milan")
+                    .setLastName("Brckalo")
+                    .build();
+
+      expect(user.FirstName).toHaveLength;
+      expect(user.LastName).toHaveLength;
     });
 });
