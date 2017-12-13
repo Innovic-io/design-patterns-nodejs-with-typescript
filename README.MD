@@ -24,8 +24,8 @@ https://en.wikipedia.org/wiki/Creational_pattern
 
 ## Behavioral
 
-- [Command Pattern](src/behavioral/command.ts) - [test](src/creational/command.spec.ts)
-- [Observer](src/behavioral/observer.ts) - [test](src/creational/observer.spec.ts) 
+- [Command Pattern](src/behavioral/command.ts) - [test](src/behavioral/command.spec.ts)
+- [Observer](src/behavioral/observer.ts) - [test](src/behavioral/observer.spec.ts) 
 
 ## ToFix
 
