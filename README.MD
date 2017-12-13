@@ -19,12 +19,13 @@ npm test
 ## Creational
 https://en.wikipedia.org/wiki/Creational_pattern
 
-- Factory
-- Builder
+- [Factory](src/creational/factory.ts) 
+- [Builder](src/creational/builder.ts) 
 
 ## Behavioral
 
-- Command Pattern
+- [Command Pattern](src/behavioral/command.ts) 
+- [Observer](src/behavioral/observer.ts) 
 
 ## ToFix
 
@@ -32,3 +33,7 @@ https://en.wikipedia.org/wiki/Creational_pattern
 - Middleware ( ToDo )
 - Observer
 - Singleton
+
+## Readings
+
+- https://en.wikipedia.org/wiki/Software_design_pattern
