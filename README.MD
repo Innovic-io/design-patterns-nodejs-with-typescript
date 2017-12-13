@@ -19,19 +19,18 @@ npm test
 ## Creational
 https://en.wikipedia.org/wiki/Creational_pattern
 
-- [Factory](src/creational/factory.ts) 
-- [Builder](src/creational/builder.ts) 
+- [Factory](src/creational/factory.ts) - [test](src/creational/factory.spec.ts)
+- [Builder](src/creational/builder.ts) - [test](src/creational/builder.spec.ts)
 
 ## Behavioral
 
-- [Command Pattern](src/behavioral/command.ts) 
-- [Observer](src/behavioral/observer.ts) 
+- [Command Pattern](src/behavioral/command.ts) - [test](src/creational/command.spec.ts)
+- [Observer](src/behavioral/observer.ts) - [test](src/creational/observer.spec.ts) 
 
 ## ToFix
 
 - Dependency Injection
 - Middleware ( ToDo )
-- Observer
 - Singleton
 
 ## Readings
