@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Innovic-io/design-patterns-nodejs-with-typescript.svg?branch=master)](https://travis-ci.org/Innovic-io/design-patterns-nodejs-with-typescript)
+
 # Design patterns in NodeJS with TypeScript
 
 Unit tested with Jest.
