@@ -1,6 +1,6 @@
 // https://en.wikipedia.org/wiki/Factory_method_pattern
 interface IVehicle {
-  getName(): string
+  getName(): string;
   getDescription(): string;
   setNumberOfSeats(seats: number): IVehicle;
   getNumberOfSeats(): number;
@@ -17,25 +17,25 @@ class Truck implements IVehicle {
       .setName(vehicleName);
   }
 
-  getName(): string {
+  public getName(): string {
     return this.typeOfVehicle;
   }
 
-  setName(name: string): IVehicle {
+  public setName(name: string): IVehicle {
     this.typeOfVehicle = name;
     return this;
   }
 
-  getDescription(): string {
+  public getDescription(): string {
     return `You are driving ${this.getName()} and it has ${this.getNumberOfSeats()} seats.`;
   }
 
-  setNumberOfSeats(seats: number) {
+  public setNumberOfSeats(seats: number) {
     this.numberOfSeats = seats;
     return this;
   }
 
-  getNumberOfSeats(): number {
+  public getNumberOfSeats(): number {
     return this.numberOfSeats;
   }
 }
@@ -44,30 +44,30 @@ class Van implements IVehicle {
   private typeOfVehicle: string;
   private numberOfSeats: number;
 
-  constructor(numberOfSeats = 20, vehicleName:string = CarEnum.Van) {
+  constructor(numberOfSeats = 20, vehicleName: string = CarEnum.Van) {
     this.setNumberOfSeats(numberOfSeats)
       .setName(vehicleName);
   }
 
-  getName(): string {
+  public getName(): string {
     return this.typeOfVehicle;
   }
 
-  setName(name: string): IVehicle {
+  public setName(name: string): IVehicle {
     this.typeOfVehicle = name;
     return this;
   }
 
-  getDescription(): string {
+  public getDescription(): string {
     return `You are driving ${this.getName()} and it has ${this.getNumberOfSeats()} seats.`;
   }
 
-  setNumberOfSeats(seats: number) {
+  public setNumberOfSeats(seats: number) {
     this.numberOfSeats = seats;
     return this;
   }
 
-  getNumberOfSeats(): number {
+  public getNumberOfSeats(): number {
     return this.numberOfSeats;
   }
 }
@@ -83,25 +83,25 @@ class Sedan implements IVehicle {
       .setName(vehicleName);
   }
 
-  getName(): string {
+  public getName(): string {
     return this.typeOfVehicle;
   }
 
-  setName(name: string): IVehicle {
+  public setName(name: string): IVehicle {
     this.typeOfVehicle = name;
     return this;
   }
 
-  getDescription(): string {
+  public getDescription(): string {
     return `You are driving ${this.getName()} and it has ${this.getNumberOfSeats()} seats.`;
   }
 
-  setNumberOfSeats(seats: number) {
+  public setNumberOfSeats(seats: number) {
     this.numberOfSeats = seats;
     return this;
   }
 
-  getNumberOfSeats(): number {
+  public getNumberOfSeats(): number {
     return this.numberOfSeats;
   }
 }
@@ -110,32 +110,32 @@ class Bus implements IVehicle {
   private typeOfVehicle: string;
   private numberOfSeats: number;
 
-  constructor(numberOfSeats = 55, vehicleName:string = CarEnum.Bus) {
+  constructor(numberOfSeats = 55, vehicleName: string = CarEnum.Bus) {
 
     this
       .setNumberOfSeats(numberOfSeats)
       .setName(vehicleName);
   }
 
-  getName(): string {
+  public getName(): string {
     return this.typeOfVehicle;
   }
 
-  setName(name: string): IVehicle {
+  public setName(name: string): IVehicle {
     this.typeOfVehicle = name;
     return this;
   }
 
-  getDescription(): string {
+  public getDescription(): string {
     return `You are driving ${this.getName()} and it has ${this.getNumberOfSeats()} seats.`;
   }
 
-  setNumberOfSeats(seats: number) {
+  public setNumberOfSeats(seats: number) {
     this.numberOfSeats = seats;
     return this;
   }
 
-  getNumberOfSeats(): number {
+  public getNumberOfSeats(): number {
     return this.numberOfSeats;
   }
 }
@@ -145,15 +145,15 @@ abstract class VehicleAbstractFactory {
 }
 
 export enum CarEnum {
-  Sedan = 'Sedan',
-  Van = 'Van',
-  Truck = 'Truck',
-  Bus = 'Bus'
+  Sedan = "Sedan",
+  Van = "Van",
+  Truck = "Truck",
+  Bus = "Bus",
 }
 
 export class CarFactory extends VehicleAbstractFactory {
 
-  create(type: CarEnum, numberOfSeats?: number, name?: string) {
+  public create(type: CarEnum, numberOfSeats?: number, name?: string) {
 
     switch (type) {
       case CarEnum.Sedan:
