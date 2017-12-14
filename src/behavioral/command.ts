@@ -11,9 +11,7 @@ export class EngineCommand {
 
   private commands = [];
 
-  constructor() {}
-
-  storeAndExecute(command) {
+  public storeAndExecute(command) {
 
     this.commands.push(command);
 
@@ -33,15 +31,15 @@ export class CarInvoker implements ICar {
 
   private engineOn: boolean;
 
-  start () {
+  public start() {
     this.engineOn = true;
   }
 
-  end () {
+  public end() {
     this.engineOn = false;
   }
 
-  getEngineStatus() {
+  public getEngineStatus() {
     return this.engineOn;
   }
 }
@@ -52,32 +50,32 @@ export class CarInvoker implements ICar {
  * The invoker does not know anything about a concrete command, it knows only about command interface.
  */
 
-interface Receiver {
+interface IReceiver {
   execute(): void;
 }
 
-export class StartReceiver<T extends ICar> implements Receiver {
+export class StartReceiver<T extends ICar> implements IReceiver {
 
-  car: T;
+  public car: T;
 
   constructor(car: T) {
-    this.car = car
+    this.car = car;
   }
 
-  execute() {
-    this.car.start()
+  public execute() {
+    this.car.start();
   }
 }
 
-export class EndReceiver<T extends ICar> implements Receiver {
+export class EndReceiver<T extends ICar> implements IReceiver {
 
-  car: T;
+  public car: T;
 
-  constructor (car: T) {
-    this.car = car
+  constructor(car: T) {
+    this.car = car;
   }
 
-  execute() {
-    this.car.end()
+  public execute() {
+    this.car.end();
   }
 }
