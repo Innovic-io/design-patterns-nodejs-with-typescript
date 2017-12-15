@@ -13,7 +13,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
-    "lint": "tslint src/*/**.ts --fix"
+    "lint": "tslint ./src/*/**.ts --fix"
   },
   "dependencies": {},
   "devDependencies": {

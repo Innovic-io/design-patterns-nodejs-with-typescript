@@ -6,11 +6,9 @@ interface ISound {
   getSound(): string;
 }
 
-interface IBird {
-  getSound(): string;
+interface IBird extends IMoving, ISound {
   setSound(sound: ISound): void;
 
-  getMoving(): string;
   setMovingStyle(movingStyle: IMoving): void;
 
   describe(): string;

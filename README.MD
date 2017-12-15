@@ -17,10 +17,10 @@ npm test
 ```
 
 ## Creational
-https://en.wikipedia.org/wiki/Creational_pattern
 
 - [Factory](src/creational/factory.ts) - [test](src/creational/factory.spec.ts)
 - [Builder](src/creational/builder.ts) - [test](src/creational/builder.spec.ts)
+- [Strategy](src/behavioral/strategy/strategy.ts) - [test](src/behavioral/strategy/strategy.spec.ts)
 
 ## Behavioral
 
