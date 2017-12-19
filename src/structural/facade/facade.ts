@@ -74,6 +74,13 @@ class Distance {
 }
 
 
+export interface IProjectileMotion {
+    velocity: number;
+    height: number;
+    distance: number;
+}
+
+
 export class ProjectileMotionFacade {
     private displacement: Displacement;
     private velocity: Velocity;
@@ -89,16 +96,14 @@ export class ProjectileMotionFacade {
         this.distance = new Distance();
     }
 
-    calculate(initialVelocity: number, angle: number, time: number): any {
-        let result = {};
-
+    calculate(initialVelocity: number, angle: number, time: number): IProjectileMotion {
         let vX = this.velocity.xDirection(initialVelocity, angle);
         let vY = this.velocity.yDirection(initialVelocity, angle, time);
 
-        result['velocity'] = this.velocity.magnitude(vX, vY);
-        result['height'] = this.height.get(initialVelocity, angle);
-        result['distance'] = this.distance.get(initialVelocity, angle);
-
-        return result;
+        return {
+            velocity: this.velocity.magnitude(vX, vY),
+            height: this.height.get(initialVelocity, angle),
+            distance: this.distance.get(initialVelocity, angle)
+        }
     }
 }
