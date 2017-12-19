@@ -97,8 +97,8 @@ export class ProjectileMotionFacade {
     }
 
     calculate(initialVelocity: number, angle: number, time: number): IProjectileMotion {
-        let vX = this.velocity.xDirection(initialVelocity, angle);
-        let vY = this.velocity.yDirection(initialVelocity, angle, time);
+        const vX = this.velocity.xDirection(initialVelocity, angle);
+        const vY = this.velocity.yDirection(initialVelocity, angle, time);
 
         return {
             velocity: this.velocity.magnitude(vX, vY),
