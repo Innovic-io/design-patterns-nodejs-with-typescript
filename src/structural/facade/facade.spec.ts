@@ -1,13 +1,11 @@
 import { ProjectileMotionFacade } from './facade';
 
 describe('Calculating components of projectile motion', () => {
-  let projectileMotion;
-
-  beforeEach(() => {
-    projectileMotion = new ProjectileMotionFacade();
-  });
 
   it('velocity, distance and height after some time', () => {
+
+    const projectileMotion = new ProjectileMotionFacade();
+
     const mock = {
       initialVelocity: 13,
       angle: 30,

@@ -9,9 +9,9 @@ describe("Chain of responsibility", () => {
     emailLogger.setNext(new FileLogger(LogLevel.Debug));
 
     /*
-    logger.message("Logging warning", DiscountLevel.Warning);
-    logger.message("Emailing error", DiscountLevel.Error);
-    logger.message("Debug info", DiscountLevel.Debug);
+    logger.message("Logging warning", LogLevel.Warning);
+    logger.message("Emailing error", LogLevel.Error);
+    logger.message("Debug info", LogLevel.Debug);
     */
   });
 });
