@@ -20,6 +20,7 @@ npm test
 
 - [Factory](src/creational/factory.ts) - [test](src/creational/factory.spec.ts)
 - [Builder](src/creational/builder.ts) - [test](src/creational/builder.spec.ts)
+- [Singleton](src/creational/singleton.ts) - [test](src/creational/singleton.spec.ts)
 - [Strategy](src/behavioral/strategy/strategy.ts) - [test](src/behavioral/strategy/strategy.spec.ts)
 
 ## Behavioral
