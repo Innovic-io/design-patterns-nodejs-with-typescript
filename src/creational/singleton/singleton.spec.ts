@@ -7,6 +7,6 @@ describe("Singleton", () => {
     const singletonOne = Singleton.getInstance();
     const singletonTwo = Singleton.getInstance();
 
-    expect(singletonOne === singletonTwo).toEqual;
+    expect(singletonOne).toEqual(singletonTwo);
   });
 });
