@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Innovic-io/design-patterns-nodejs-with-typescript.svg?branch=master)](https://travis-ci.org/Innovic-io/design-patterns-nodejs-with-typescript)
+[![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
 
 # Design patterns in NodeJS with TypeScript
 
