@@ -32,6 +32,7 @@ npm test
 ## Structural
 
 - [Facade](src/structural/facade/facade.ts) - [test](src/structural/facade/facade.spec.ts)
+- [Adapter](src/structural/adapter/adapter.ts) - [test](src/structural/adapter/adapter.spec.ts)
 
 ## ToFix
 

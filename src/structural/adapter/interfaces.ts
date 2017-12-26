@@ -1,7 +1,7 @@
-interface IMediaPlayer {
+export interface IMediaPlayer {
     play(fileName: string): string;
 }
 
-interface IAdvancedMediaPlayer {
+export interface IAdvancedMediaPlayer {
   playMusic(fileName: string): string;
 }

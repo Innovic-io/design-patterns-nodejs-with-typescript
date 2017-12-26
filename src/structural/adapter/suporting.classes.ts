@@ -1,3 +1,5 @@
+import { IAdvancedMediaPlayer, IMediaPlayer } from "./interfaces";
+
 export const UNSUPPORTED_TYPE_ERROR = "Unsupported type";
 
 export enum AUDIO_FORMAT_TYPE {
@@ -37,6 +39,7 @@ export class MediaAdapter implements IMediaPlayer {
   private advancedPlayer: IAdvancedMediaPlayer;
 
   constructor(fileName: string) {
+
     switch (fileName.substring(fileName.lastIndexOf(".") + 1).toLocaleLowerCase()) {
 
       case AUDIO_FORMAT_TYPE.VLC:
