@@ -34,12 +34,6 @@ npm test
 - [Facade](src/structural/facade/facade.ts) - [test](src/structural/facade/facade.spec.ts)
 - [Adapter](src/structural/adapter/adapter.ts) - [test](src/structural/adapter/adapter.spec.ts)
 
-## ToFix
-
-- Dependency Injection
-- Middleware ( ToDo )
-- Singleton
-
 ## Readings
 
 - https://en.wikipedia.org/wiki/Software_design_pattern
