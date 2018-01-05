@@ -1,9 +1,9 @@
 // Abstraction
 export class Shape {
-  public drawingApi: DrawingApi;
+  drawingApi: IDrawingAPI;
 
-  constructor(_drawingApi: DrawingApi) {
-    this.drawingApi = _drawingApi;
+  constructor(drawingApi: IDrawingAPI) {
+    this.drawingApi = drawingApi;
   }
 
   public draw(): void {}
@@ -18,9 +18,15 @@ export interface IDrawingAPI {
 /**
  * ConcreteImplementor
  */
-export class DrawingApi implements IDrawingAPI {
+export class DrawingApiA implements IDrawingAPI {
   public drawCircle(x: number, y: number, radius: number) {
-    console.log(`DrawingApi: (${x}, ${y}) radius = ${radius}`);
+    console.log(`DrawingApiA: (${x}, ${y}) radius = ${radius}`);
+  }
+}
+
+export class DrawingApiB implements IDrawingAPI {
+  public drawCircle(x: number, y: number, radius: number) {
+    console.log(`DrawingApiB: (${x}, ${y}) radius = ${radius}`);
   }
 }
 
@@ -28,15 +34,15 @@ export class DrawingApi implements IDrawingAPI {
  * Refined Abstraction
  */
 export class CircleShape extends Shape {
-  x: number;
-  y: number;
-  radius: number;
+  private x: number;
+  private y: number;
+  private radius: number;
 
-  constructor(_x: number, _y: number, _radius: number, drawingApi: DrawingApi) {
+  constructor(x: number, y: number, radius: number, drawingApi: IDrawingAPI) {
     super(drawingApi);
-    this.x = _x;
-    this.y = _y;
-    this.radius = _radius;
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
   }
 
   draw() {
@@ -44,6 +50,6 @@ export class CircleShape extends Shape {
   }
 
   resizeByPercentage(pct: number) {
-    this.radius *= (1.0 + pct / 100);
+    this.radius *= (1.0 + pct / 100.0);
   }
 }
