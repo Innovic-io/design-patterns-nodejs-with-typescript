@@ -28,12 +28,13 @@ npm test
 
 - [Command Pattern](src/behavioral/command.ts) - [test](src/behavioral/command.spec.ts)
 - [Observer](src/behavioral/observer.ts) - [test](src/behavioral/observer.spec.ts) 
-- [Chain Of Responsibility](src/behavioral/chain_of_responsibility.ts) [test](src/behavioral/chain_of_responsibility.spec.ts)
+- [Chain Of Responsibility](src/behavioral/chain_of_responsibility.ts) -[test](src/behavioral/chain_of_responsibility.spec.ts)
 
 ## Structural
 
 - [Facade](src/structural/facade/facade.ts) - [test](src/structural/facade/facade.spec.ts)
 - [Adapter](src/structural/adapter/adapter.ts) - [test](src/structural/adapter/adapter.spec.ts)
+- [Bridge](src/structural/bridge/bridge.ts) - [test](src/structural/bridge/bridge.spec.ts)
 
 ## Readings
 

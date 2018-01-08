@@ -20,13 +20,14 @@ export interface IDrawingAPI {
  */
 export class DrawingApiA implements IDrawingAPI {
   public drawCircle(x: number, y: number, radius: number) {
-    console.log(`DrawingApiA: (${x}, ${y}) radius = ${radius}`);
+
+    // `DrawingApiA: (${x}, ${y}) radius = ${radius}`
   }
 }
 
 export class DrawingApiB implements IDrawingAPI {
   public drawCircle(x: number, y: number, radius: number) {
-    console.log(`DrawingApiB: (${x}, ${y}) radius = ${radius}`);
+    // `DrawingApiB: (${x}, ${y}) radius = ${radius}`
   }
 }
 

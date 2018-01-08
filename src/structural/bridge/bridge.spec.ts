@@ -1,4 +1,4 @@
-import { Shape, CircleShape, IDrawingAPI, DrawingApiA, DrawingApiB } from './bridge';
+import { Shape, CircleShape, DrawingApiA, DrawingApiB } from './bridge';
 
 describe('Testing Bridge Pattern on ', () => {
 

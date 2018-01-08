@@ -2,6 +2,7 @@ import { AUDIO_FORMAT_TYPE, buildOutput, MediaAdapter } from "./suporting.classe
 import { IMediaPlayer } from "./interfaces";
 
 export class AudioPlayer implements IMediaPlayer {
+
   private mediaAdapter: MediaAdapter;
 
   play(fileName: string): string {
