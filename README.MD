@@ -35,6 +35,7 @@ npm test
 - [Facade](src/structural/facade/facade.ts) - [test](src/structural/facade/facade.spec.ts)
 - [Adapter](src/structural/adapter/adapter.ts) - [test](src/structural/adapter/adapter.spec.ts)
 - [Bridge](src/structural/bridge/bridge.ts) - [test](src/structural/bridge/bridge.spec.ts)
+- [Composite](src/structural/composite/composite.ts) - [test](src/structural/composite/composite.spec.ts)
 
 ## Readings
 

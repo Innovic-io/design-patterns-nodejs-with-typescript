@@ -116,6 +116,7 @@ describe("Composite Adapter", () => {
         secondJuniorDeveloper,
         thirdJuniorDeveloper,
       ]);
+
     CEOEmployee.removeSubordinate(secondJuniorDeveloper);
 
     expect(CEOEmployee.getSubordinates()).toEqual(
